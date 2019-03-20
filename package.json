@@ -1,0 +1,30 @@
+{
+  "name": "MEAN-PracticasUniversitarias",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidZuluaga1991/MEAN-PracticasUniversitarias.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidZuluaga1991/MEAN-PracticasUniversitarias/issues"
+  },
+  "homepage": "https://github.com/DavidZuluaga1991/MEAN-PracticasUniversitarias#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.19",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
