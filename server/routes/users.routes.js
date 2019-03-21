@@ -1,12 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-// router.get('/',(req, res) => {
-//     res.json({mensaje: 'Hola Mundo'});
-// });
-
-// module.exports = router;
-
 const user = require('../controllers/users.controller');
 
 router.get('/', user.getUsers);

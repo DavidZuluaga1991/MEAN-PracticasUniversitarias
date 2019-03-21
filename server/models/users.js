@@ -8,7 +8,8 @@ const usersSchema = new Schema({
     code: { type: String, required: true},
     program: { type: String, required: true},
     user: { type: String, required: true},
-    password: { type: String, required: true}
+    password: { type: String, required: true},
+    isadmin: { type: Boolean }
 });
 
 module.exports = mongoose.model('Users', usersSchema);

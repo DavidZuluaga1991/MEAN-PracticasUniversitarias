@@ -14,7 +14,8 @@ userCtrl.createUser = async (req, res, next) => {
         code: req.body.code,
         program: req.body.program,
         user:  req.body.user,
-        password:  req.body.password
+        password:  req.body.password,
+        isadmin: req.body.isadmin
     });
     await user.save();
     res.json({status: 'User created'});
@@ -34,7 +35,8 @@ userCtrl.editUser = async (req, res, next) => {
         code: req.body.code,
         program: req.body.program,
         user:  req.body.user,
-        password:  req.body.password
+        password:  req.body.password,
+        isadmin: req.body.isadmin
     };
     await User.findByIdAndUpdate(id, {$set: users}, {new: true});
     res.json({status: 'User Updated'});
