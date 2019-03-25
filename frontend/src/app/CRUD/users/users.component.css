@@ -1,0 +1,50 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+/* td, th {
+  width: 25%;
+} */
+
+.table-user {
+  margin-top: 18px;
+  margin-left: 20%;
+  margin-right: 25%;
+  margin-bottom: 50px;
+}
+
+.mat-column-actions {
+  width: 193px;
+}
+
+.actions {
+  margin-left: 10%;
+}
+
+@media only screen and ( max-width: 968px ) {
+
+  /* Aquí van los estilos para iPad vertical y para los escritorios*/
+  .table-user {
+    margin-top: 10px;
+  }
+}
+
+@media only screen and ( max-width: 868px ) {
+
+  /* Aquí van los estilos para iPad vertical y para los escritorios*/
+  .table-user {
+    margin-top: 11px;
+  }
+}
+@media only screen and ( max-width: 800px ) {
+
+  /* Aquí van los estilos para iPad vertical y para los escritorios*/
+  .table-user {
+    margin-top: 76px;
+  }
+}

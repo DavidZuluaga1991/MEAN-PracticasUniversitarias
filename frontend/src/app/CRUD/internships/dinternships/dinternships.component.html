@@ -1,0 +1,77 @@
+<div mat-dialog-title>{{ this.mean.getRole() === 'estudiante' ? 'Aplicar a ' : 'Eliminar'}} {{ data.namecompany }}</div>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+  <table style="width:100%">
+    <tr>
+      <th><p>Nombre:</p></th>
+      <td>
+        <p>{{ data.namecompany }}</p>
+      </td>
+    </tr>
+    <tr>
+      <th><p>Código Vacante:</p></th>
+      <td>
+        <p>{{ data.code }}</p>
+      </td>
+    </tr>
+    <tr>
+      <th><p>Sede:</p></th>
+      <td>
+        <p>{{ data.sede }}</p>
+      </td>
+    </tr>
+    <tr>
+      <th><p>Fecha Desde:</p></th>
+      <td>
+        <p>{{ data.datefrom | date: "dd-MM-yyyy" }}</p>
+      </td>
+    </tr>
+    <tr>
+      <th><p>Fecha Hasta:</p></th>
+      <td>
+        <p>{{ data.dateto | date: "dd-MM-yyyy" }}</p>
+      </td>
+    </tr>
+    <tr>
+      <th><p>Requisitos:</p></th>
+      <td>
+        <p>{{ data.requirements }}</p>
+      </td>
+    </tr>
+    <tr>
+      <th><p>Programas:</p></th>
+      <td>
+        <p>{{ data.programs }}</p>
+      </td>
+    </tr>
+    <tr>
+      <th><p>Fotografia:</p></th>
+      <td>
+        <p>{{ data.photography }}</p>
+      </td>
+    </tr>
+  </table>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button
+    mat-button
+    (click)="deleteInternships()"
+    *ngIf="this.mean.getRole() === 'admin'"
+    [mat-dialog-close]="result"
+    cdkFocusInitial
+  >
+    Eliminar
+  </button>
+  <button
+    mat-button
+    (click)="aplicateInternships()"
+    [disabled]="isAplicate"
+    *ngIf="this.mean.getRole() === 'estudiante'"
+    [mat-dialog-close]="result"
+    cdkFocusInitial
+  >
+    Aplicar
+  </button>
+</div>

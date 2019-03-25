@@ -1,0 +1,54 @@
+<div mat-dialog-title>Eliminar {{ data.name + " " + data.lastname }}</div>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+  <table style="width:100%">
+    <tr>
+      <th><p>Nombres:</p></th>
+      <td>
+        <p>{{ data.name }}</p>
+      </td>
+    </tr>
+    <tr>
+      <th><p>Apellidos:</p></th>
+      <td>
+        <p>{{ data.lastname }}</p>
+      </td>
+    </tr>
+    <tr>
+      <th><p>Codigo:</p></th>
+      <td>
+        <p>{{ data.code }}</p>
+      </td>
+    </tr>
+    <tr>
+      <th><p>Usuario:</p></th>
+      <td>
+        <p>{{ data.user }}</p>
+      </td>
+    </tr>
+    <tr>
+      <th><p>Password:</p></th>
+      <td>
+        <p>**********</p>
+      </td>
+    </tr>
+    <tr>
+      <th><p>Tipo Usuario:</p></th>
+      <td>
+        <p>{{ data.isadmin ? "Administrador" : "Estudiante" }}</p>
+      </td>
+    </tr>
+  </table>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button
+    mat-button
+    (click)="deleteUser()"
+    [mat-dialog-close]="result"
+    cdkFocusInitial
+  >
+    Eliminar
+  </button>
+</div>

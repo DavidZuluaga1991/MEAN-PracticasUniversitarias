@@ -1,0 +1,125 @@
+<div class="background-1">
+  <div class="container">
+    <section>
+      <div class="device">
+        <div class="forms-device">
+          <form class="container" [formGroup]="options">
+            <mat-card-header class="red">
+              <div mat-card-avatar class="header-image"></div>
+              <mat-card-title>
+                <!-- <h3>Iniciar Sesion</h3> -->
+                <p>{{ !data ? "Crear " : "Modificar " }} Pasantía</p>
+                <mat-divider></mat-divider>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div>
+                <mat-form-field class="form-field">
+                  <input
+                    matInput
+                    placeholder="Digite el Nombre"
+                    formControlName="namecompany"
+                    required
+                  />
+                  <mat-error *ngIf="hasError('namecompany', 'required')"
+                    >Por favor digite el nombre de la Empresa</mat-error
+                  >
+                </mat-form-field>
+
+                <mat-form-field class="form-field">
+                  <input
+                    matInput
+                    placeholder="Digite el Código de la Vacante"
+                    formControlName="code"
+                    required
+                  />
+                  <mat-error *ngIf="hasError('code', 'required')">
+                    Por favor digite el Código de la Vacante
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="form-field">
+                  <input
+                    matInput
+                    placeholder="Digite la Sede"
+                    formControlName="sede"
+                    required
+                  />
+                  <mat-error *ngIf="hasError('sede', 'required')">
+                    Por Favor digitar la Sede
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-field">
+                  <input
+                    matInput
+                    placeholder="Digite el Programa"
+                    formControlName="programs"
+                    required
+                  />
+                  <mat-error *ngIf="hasError('programs', 'required')">
+                    Por Favor digitar el Programa
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="form-field">
+                  <input
+                    matInput
+                    formControlName="datefrom"
+                    [matDatepickerFilter]="myFilter"
+                    [matDatepicker]="datefrom"
+                    placeholder="Fecha de Inicio"
+                  />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="datefrom"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #datefrom></mat-datepicker>
+                  <mat-error *ngIf="hasError('datefrom', 'required')">
+                    Digitar Fecha de Inicio
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-field">
+                  <input
+                    matInput
+                    formControlName="dateto"
+                    [matDatepickerFilter]="myFilter"
+                    [matDatepicker]="dateto"
+                    placeholder="Fecha de Finalización"
+                  />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="dateto"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #dateto></mat-datepicker>
+                  <mat-error *ngIf="hasError('dateto', 'required')">
+                    Digitar Fecha que Finaliza las vacantes
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="form-field text-area">
+                  <textarea matInput placeholder="Digitar requisitos para el puesto" formControlName="requirements"></textarea>
+                  <mat-error *ngIf="hasError('requirements', 'required')">
+                    Por favor digitar requerimientos para el puesto
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </mat-card-content>
+            <mat-card-actions>
+              <button
+                mat-button
+                [disabled]="!options.valid"
+                (click)="sendInternship()"
+              >
+                Enviar
+              </button>
+            </mat-card-actions>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

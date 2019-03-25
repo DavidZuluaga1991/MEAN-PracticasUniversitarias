@@ -1,0 +1,69 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()" *ngIf="!this.mean.isAuthenticated()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="menu-spacer"></div>
+    <button mat-button routerLink="login" *ngIf="this.mean.isAuthenticated()">
+      Iniciar Sesion
+    </button>
+    <!-- <h1 class="example-app-name">Responsive App</h1> -->
+    <!-- <mat-menu #appMenu="matMenu" *ngIf="this.mean.started()">
+      <button mat-menu-item>
+        <mat-icon>more_vert</mat-icon>
+        Bienvenido
+      </button>
+    </mat-menu>
+
+    <button mat-icon-button [matMenuTriggerFor]="appMenu" *ngIf="this.mean.started()">
+      <mat-icon>more_vert</mat-icon>
+    </button> -->
+    <div *ngIf="!this.mean.isAuthenticated()">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle
+          <!-- more_vert -->
+        </mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="this.mean.logout()">
+          <!-- <mat-icon>dialpad</mat-icon> -->
+          <span>Cerrar Sesión</span>
+        </button>
+        <!-- <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voicemail</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Disable alerts</span>
+        </button> -->
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container
+    class="example-sidenav-container container-content"
+    [style.marginTop.px]="mobileQuery.matches ? 0 : 0"
+  >
+    <mat-sidenav
+      #snav
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+      class="sidenav-menu"
+    >
+      <mat-nav-list *ngIf="toogle(snav, !this.mean.isAuthenticated())">
+        <!-- <a mat-list-item routerLink="nav.route" *ngFor="let nav of fillerNav">{{
+          nav.text
+        }}</a> -->
+        <a mat-list-item routerLink="user" *ngIf="this.mean.getRole() === 'admin'">Usuarios</a>
+        <a mat-list-item routerLink="internships">Pasantías</a>
+        <!-- <a mat-list-item routerLink="user">Usuarios Prueba</a> -->
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
