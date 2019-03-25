@@ -30,7 +30,7 @@ export class AuthGuardService extends Auth implements CanActivate {
           this.role !== 'admin')
       ) {
         if (!this.meanService.isAuthenticated() && this.role !== expectedRole) {
-          this.router.navigate(['internships']);
+          this.router.navigate(['welcome']);
         } else {
           this.router.navigate(['login']);
         }

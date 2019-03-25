@@ -18,6 +18,12 @@ const routes: Routes = [
     data: { role: 'estudiante' }
   },
   {
+    path: 'welcome',
+    loadChildren: './Pages/welcome/welcome.module#WelcomeModule', // Lazy load account module
+    canActivate: [AuthGuardService],
+    data: { role: 'estudiante' }
+  },
+  {
     path: 'login',
     loadChildren: './Pages/login/login.module#LoginModule' // Lazy load account module
   },

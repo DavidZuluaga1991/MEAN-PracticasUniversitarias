@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         this.notification.showError(l.status, 'Error de Sesion');
       } else if (l.token) {
         this._mean.loginValid(l.token);
-        this.router.navigate(['internships']);
+        this.router.navigate(['welcome']);
       }
     });
   }

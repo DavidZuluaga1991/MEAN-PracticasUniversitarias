@@ -1,0 +1,57 @@
+<agm-map
+      [latitude]="lat"
+      [longitude]="lng"
+      [zoom]="zoom"
+      [mapTypeId]='mapType'
+      (mapClick)="addMarker($event.coords.lat, $event.coords.lng)"
+    >
+      <agm-marker
+        *ngFor="let marker of markers"
+        [latitude]="marker.lat"
+        [longitude]="marker.lng"
+        [opacity]="marker.alpha"
+        [markerDraggable]="false"
+        (markerClick)="selectMarker($event)"
+      >
+      <agm-info-window>
+        <table style="width:100%">
+          <tr>
+            <th><p>Nombre:</p></th>
+            <td>
+              <p>{{ marker.inter.namecompany }}</p>
+            </td>
+          </tr>
+          <tr>
+            <th><p>Código Vacante:</p></th>
+            <td>
+              <p>{{ marker.inter.code }}</p>
+            </td>
+          </tr>
+          <tr>
+            <th><p>Requisitos:</p></th>
+            <td>
+              <p>{{ marker.inter.requirements }}</p>
+            </td>
+          </tr>
+          <tr>
+            <th><p>Programas:</p></th>
+            <td>
+              <p>{{ marker.inter.programs }}</p>
+            </td>
+          </tr>
+        </table>
+        <!-- <a href="https://www.google.com/maps?ll={{location.marker.lat}},{{location.marker.lng}}&z=20&t=m&hl=es-ES&gl=US&mapclient=apiv3" target="_blank">Ver en Google Maps</a> -->
+        <button mat-button (click)="aplicateInternships(marker.inter._id)" *ngIf="this.mean.getRole() === 'estudiante'">Aplicar</button>
+      </agm-info-window>
+      </agm-marker>
+      <!-- <agm-rectangle
+        [north]="max('lat')"
+        [east]="max('lng')"
+        [south]="min('lat')"
+        [west]="min('lng')"
+      >
+      </agm-rectangle> -->
+    </agm-map>
+    <p *ngIf="selectedMarker">
+      Lat: {{ selectedMarker.lat }} Lng: {{ selectedMarker.lng }}
+    </p>

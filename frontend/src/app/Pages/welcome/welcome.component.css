@@ -1,0 +1,10 @@
+agm-map {
+  height: 100%; /* height is required */
+}
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+th {
+  text-align: left
+}
